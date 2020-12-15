@@ -1,0 +1,70 @@
+<!-- jQuery -->
+<script src="{{url_for('admin.themes', path='plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{url_for('admin.themes', path='plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{url_for('admin.themes', path='js/adminlte.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{url_for('admin.themes', path='plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- Sweet Alert Plugin -->
+<script src="{{url_for('admin.themes', path='plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+<!-- Toastr Plugin -->
+<script src="{{url_for('admin.themes', path='plugins/toastr/toastr.min.js')}}"></script>
+
+{% if current_endpoint() in ["admin.sign"] %}
+<!-- Recaptcha Resize -->
+<script src="{{url_for('admin.themes', path='js/recaptcha.js')}}"></script>
+{% else %}
+<!-- ChartJS -->
+<script src="{{url_for('admin.themes', path='plugins/chart.js/Chart.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{url_for('admin.themes', path='plugins/sparklines/sparkline.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{url_for('admin.themes', path='plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{url_for('admin.themes', path='plugins/moment/moment.min.js')}}"></script>
+<script src="{{url_for('admin.themes', path='plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{url_for('admin.themes', path='plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{url_for('admin.themes', path='plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{url_for('admin.themes', path='plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+{% endif %}
+
+{% if current_endpoint() in ["admin.hosts"] %}
+<!-- DataTables  & Plugins -->
+<script src="{{url_for('admin.themes', path='plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{url_for('admin.themes', path='plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{url_for('admin.themes', path='plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+
+<script>
+  function wake_up(host_idx){
+    $.ajax({
+      type:   "GET",
+      url:    "/admin/hosts/up/" + host_idx,
+      cache:  false,
+      success:function(html){
+        toastr.success(html);
+      }
+    });
+  }
+</script>
+
+<script>
+$("#hosts_table").DataTable({
+  "pagingType": "full_numbers",
+  "paging": true,
+  "lengthChange": true,
+  "searching": true,
+  "ordering": true,
+  "info": true,
+  "autoWidth": false,
+  "responsive": true,
+  "lengthMenu": [
+        [10, 25, 50, -1],
+        [10, 25, 50, "All"]
+      ],
+});
+</script>
+{% endif %}

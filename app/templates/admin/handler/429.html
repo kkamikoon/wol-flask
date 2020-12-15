@@ -1,0 +1,16 @@
+{% extends "/admin/handler/layout.html" %}
+{% block handler %}
+<div class="error-page">
+  <h2 class="headline text-warning">
+    <b>429</b>
+  </h2>
+
+  <div class="error-content">
+    <h3><i class="fas fa-exclamation-triangle text-warning"></i> Um.. Excuse me?</h3>
+    <p>
+      You just send too many request to me.
+      Please calm down for a while, And move on <a class="text-warning" href="/"><b>here</b></a>.
+    </p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- Notification Start -->
+<script>
+    /*
+    var Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000
+      });
+    */
+    toastr.options ={
+      showMethod:     "slideDown",
+      positionClass:  "toast-bottom-right",
+    }
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {%- if messages -%}
+    {% for category, message in messages %}
+
+    $(document).ready(
+      {%- if category == 'success' -%}
+        toastr.success("{{ message }}")
+      {%- elif category == 'warning' -%}
+        toastr.warning("{{ message }}")
+      {%- elif category == 'error' -%}
+        toastr.error("{{ message }}")
+      {%- elif category == 'info' -%}
+        toastr.info("{{ message }}")
+      {%- endif -%}
+    );
+    
+    {% endfor %}    
+    {%- endif -%}
+    {% endwith %}
+</script>
+<!-- Notification Start -->

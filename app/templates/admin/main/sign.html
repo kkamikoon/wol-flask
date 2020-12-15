@@ -1,0 +1,44 @@
+{% extends "/admin/main/layout.html" %}
+{% block single_page %}
+<div class="login-box">
+  <div class="login-logo">
+    <b>{{get_config('main_title')}}</b>
+  </div>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form action="/sign/in" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="uid" placeholder="ID" autocomplete="username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" name="password" placeholder="Password" autocomplete="current-password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        {% if get_config("recaptcha_status") %}
+        <div class="input-group mb-3">
+          {{ recaptcha }}
+        </div>
+        {% endif %}
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-block btn-outline-warning">
+              <b>Sign In</b>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+
+  <title>{{get_config("title_tag")}}</title>
+
+  <!-- Favicons -->
+  <link href="{{url_for('admin.themes', path='img/dokkaebi.png')}}" rel="apple=touch-icon" sizes="76x76">
+  <link href="{{url_for('admin.themes', path='img/dokkaebi.png')}}" rel="icon" type="image/png">
+  
+  <!-- Fonts and icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{url_for('admin.themes', path='plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{url_for('admin.themes', path='css/adminlte.css')}}">
+</head>
+
+<body class="hold-transition login-page dark-mode">
+  {% block handler %}
+  {% endblock %}
+  
+  {% include "/admin/main/js.html" %}
+  {% include "/admin/main/notify.html" %}
+</body>
+
+</html>

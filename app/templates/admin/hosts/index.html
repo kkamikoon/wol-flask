@@ -1,0 +1,98 @@
+{% extends "/admin/main/layout.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="card-title">Hosts for WOL</h3>
+          </div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-sm btn-outline-warning float-right" data-toggle="modal" data-target="#host_add">
+              <b>+ Host</b>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table id="hosts_table" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Name</th>
+              <th>MAC</th>
+              <th>IP</th>
+              <th>Broadcast</th>
+              <th>On</th>
+              <th>Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for host in hosts %}
+            <tr>
+              <td>{{host.idx}}</td>
+              <td>{{host.name}}</td>
+              <td>{{host.mac}}</td>
+              <td>{{host.ip}}</td>
+              <td>{{host.broadcast}}</td>
+              <td>
+                <button class="btn btn-block btn-outline-success btn-sm" onclick="javascript:wake_up({{host.idx}});" id="{{host.idx}}">Wake Up</button>
+              </td>
+              <td>
+                <a href="/admin/hosts/{{host.idx}}" class="btn btn-block btn-outline-warning btn-sm" role="button" aria-disabled="true">Detail</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Hosts Modal -->
+<div class="modal fade" id="host_add" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Host</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="/admin/hosts/add">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name of host" autocomplete="off" required>
+          </div>
+
+          <div class="form-group">
+            <label>MAC</label>
+            <input type="text" class="form-control" name="mac"  placeholder="Mac Address"  autocomplete="off" required>
+          </div>
+
+          <div class="form-group">
+            <label>IP</label>
+            <input type="text" class="form-control" name="ip"   placeholder="IP Address"   autocomplete="off" required>
+          </div>
+
+          <div class="form-group">
+            <label>Broadcast</label>
+            <select class="form-control selectpicker" data-style="btn btn-link" name="broadcast" required>
+              <option value="0">False</option>
+              <option value="1">True</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-warning">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- /.modal -->
+{% endblock %}

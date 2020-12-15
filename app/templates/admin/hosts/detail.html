@@ -1,0 +1,74 @@
+{% extends "/admin/main/layout.html" %}
+{% block content %}
+
+<div class="row">
+  <!-- Host Detail, Modify -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <b>Detail</b>
+        </h3>
+      </div>
+      <form method="POST" action="/admin/hosts/edit/{{host.idx}}">
+        <div class="card-body">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name of host" autocomplete="off" value="{{host.name}}"required>
+          </div>
+
+          <div class="form-group">
+            <label>MAC</label>
+            <input type="text" class="form-control" name="mac"  placeholder="Mac Address"  autocomplete="off" value="{{host.mac}}">
+          </div>
+
+          <div class="form-group">
+            <label>IP</label>
+            <input type="text" class="form-control" name="ip"   placeholder="IP Address"   autocomplete="off" value="{{host.ip}}">
+          </div>
+
+          <div class="form-group">
+            <label>Broadcast</label>
+            <select class="form-control selectpicker" data-style="btn btn-link" name="broadcast">
+              <option value="0" {% if host.broadcast == 0 %} selected {% endif %}>False</option>
+              <option value="1" {% if host.broadcast == 1 %} selected {% endif %}>True</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card-footer justify-content-between">
+          <button type="reset"  class="btn btn-outline-secondary">Reset</button>
+          <button type="submit" class="btn btn-outline-warning float-right">Modify</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- ./ -->
+
+  <!-- Host Delete -->
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+          <b>Delete</b>
+        </h3>
+      </div>
+      <form method="POST" action="/admin/hosts/del/{{host.idx}}">
+        <div class="card-body">
+          <p>Are your sure to delete this host?</p>
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" placeholder="{{host.name}}" autocomplete="off" required>
+          </div>
+        </div>
+        <div class="card-footer justify-content-between">
+          <button type="reset"  class="btn btn-outline-secondary">Reset</button>
+          <button type="submit" class="btn btn-outline-danger float-right">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- ./ -->
+</div>
+
+{% endblock %}

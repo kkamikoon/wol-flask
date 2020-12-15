@@ -1,0 +1,152 @@
+{% extends "/admin/main/layout.html" %}
+{% block content %}
+<form action="/admin/configs" method="POST">
+  <div class="card card-warning card-outline card-tabs">
+    <div class="card-header p-0 pt-1 border-bottom-0">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#admin-tab" aria-selected="true">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#domain" aria-selected="false">Domain</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#web" aria-selected="false">WEB</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="tab-content">
+        <!-- Admin Account Config -->
+        <div class="tab-pane fade show active" id="admin-tab">
+          <div class="row">
+            <!-- Admin Idx -->
+            <input type="hidden" name="idx" value="{{user.idx}}">
+            <!-- ./ -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  Admin ID
+                </label>
+                <input type="text" class="form-control" name="uid" value="{{user.uid}}" placeholder="You cannot modify it." disabled>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  Admin Password
+                </label>
+                <input type="password" class="form-control" name="password" value="" placeholder="Password does not be changed if you ">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  Email
+                </label>
+                <input type="email" class="form-control" name="email" value="kkamikoon@gmail.com" placeholder="Enter your email">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./ -->
+
+        <!-- Wake On Lan Config -->
+        <div class="tab-pane fade" id="domain">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Domain
+                </label>
+                <input type="text" class="form-control" name="wol_domain" value="example.com" placeholder="Enter your domain it you have.">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Domain Check
+                </label>
+                <select class="form-control" name="domain_check">
+                  <option value="0" {% if get_config('wol_check') == 0 %} selected {% endif %}>False</option>
+                  <option value="1" {% if get_config('wol_check') == 1 %} selected {% endif %}>True</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <p>
+                <u>
+                  <em>
+                    Note : If you check the domain 'True', You can only access here using your 'Domain'.
+                  </em>
+                </u>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- ./ -->
+
+        <!-- Page Config -->
+        <div class="tab-pane fade show" id="web">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Title(&lt;title&gt;)
+                </label>
+                <input type="text" class="form-control" name="title_tag" value="{{get_config('title_tag')}}" placeholder="Enter your title tag" autocomplete="off">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>
+                  Main
+                </label>
+                <input type="text" class="form-control" name="main_title" value="{{get_config('main_title')}}" placeholder="Enter Main Title" autocomplete="off">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  reCaptcha Site Key
+                </label>
+                <input type="text" class="form-control" name="recaptcha_site_key" value="{{get_config('recaptcha_site_key')}}" placeholder="Get your site key : https://www.google.com/recaptcha/about/">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  reCaptcha Secret Key
+                </label>
+                <input type="text" class="form-control" name="recaptcha_secret_key" value="{{get_config('recaptcha_secret_key')}}" placeholder="Get your secret key : https://www.google.com/recaptcha/about/">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>
+                  reCaptcha On/Off
+                </label>
+                <select class="form-control" name="recaptcha_status">
+                  <option value="0" {% if get_config('recaptcha_status') == 0 %} selected {% endif %}>False</option>
+                  <option value="1" {% if get_config('recaptcha_status') == 1 %} selected {% endif %}>True</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ./ -->
+        
+      </div>
+    </div>
+    <!-- /.card -->
+    <div class="card-footer">
+      <button type="reset" class="btn btn-default">
+        <b>Reset</b>
+      </button>
+      <button type="submit" class="btn btn-warning float-right">
+        <b>Submit</b>
+      </button>
+    </div>
+  </div>
+</form>
+{% endblock %}
