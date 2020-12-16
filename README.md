@@ -10,7 +10,7 @@ apt install -y apache2 letsencrypt redis python3-pip mysql-server libapache2-mod
 
 ## Python3 requirements install
 ```bash
-pip3 install redis flask flask_migrate flask_sqlalchemy Flask-Mail flask_caching flask_socketio flask-recaptcha sqlalchemy sqlalchemy_utils pymysql
+pip3 install redis flask flask_migrate flask_sqlalchemy Flask-Mail flask_caching flask_socketio flask-recaptcha sqlalchemy sqlalchemy_utils pymysql wakeonlan
 ```
 
 ## Create mysql default user
