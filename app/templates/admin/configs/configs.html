@@ -59,7 +59,7 @@
                 <label>
                   Domain
                 </label>
-                <input type="text" class="form-control" name="wol_domain" value="example.com" placeholder="Enter your domain it you have.">
+                <input type="text" class="form-control" name="wol_domain" value="{{get_config('wol_domain')}}" placeholder="Enter your domain it you have.">
               </div>
             </div>
             <div class="col-md-6">
@@ -68,8 +68,8 @@
                   Domain Check
                 </label>
                 <select class="form-control" name="domain_check">
-                  <option value="0" {% if get_config('wol_check') == 0 %} selected {% endif %}>False</option>
-                  <option value="1" {% if get_config('wol_check') == 1 %} selected {% endif %}>True</option>
+                  <option value="0" {% if get_config('domain_check') == 0 %} selected {% endif %}>False</option>
+                  <option value="1" {% if get_config('domain_check') == 1 %} selected {% endif %}>True</option>
                 </select>
               </div>
             </div>
