@@ -146,7 +146,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/403" class="nav-link {%if current_endpoint() in ['admin.handler_forbidden']%}active{% endif %}">
+              <a href="/admin/sign" class="nav-link">
+                <i class="nav-icon fa fa-user"></i>
+                <p>
+                  Sign
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/403" class="nav-link">
                 <i class="nav-icon far fa-circle"></i>
                 <p>
                   403 Error
@@ -154,7 +162,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/404" class="nav-link {%if current_endpoint() in ['admin.handler_page_not_found']%}active{% endif %}">
+              <a href="/admin/404" class="nav-link">
                 <i class="nav-icon far fa-circle"></i>
                 <p>
                   404 Error
@@ -162,7 +170,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/429" class="nav-link {%if current_endpoint() in ['admin.handler_too_many_requests']%}active{% endif %}">
+              <a href="/admin/429" class="nav-link">
                 <i class="nav-icon far fa-circle"></i>
                 <p>
                   429 Error
@@ -170,7 +178,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin/500" class="nav-link {%if current_endpoint() in ['admin.handler_general_error']%}active{% endif %}">
+              <a href="/admin/500" class="nav-link">
                 <i class="nav-icon far fa-circle"></i>
                 <p>
                   500 Error
