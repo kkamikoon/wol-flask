@@ -7,7 +7,7 @@ INSERT INTO users(  uid, email, password)       VALUES("kkamikoon",     "kkamiko
 INSERT INTO configs(`key`, `value`)             VALUES("wol_domain",    "wol.example.kkamikoon.com");
 INSERT INTO configs(`key`, `value`)             VALUES("domain_check",  1);
 INSERT INTO configs(`key`, `value`)             VALUES("title_tag",     "KKAMIKOON - WOL -Example");
-INSERT INTO configs(`key`, `value`)             VALUES("main_title",    "KKAMIKOON - WOL -Example");
+INSERT INTO configs(`key`, `value`)             VALUES("main_title",    "WOL -Example");
 
 -- hosts    dummy
 INSERT INTO hosts(  name, mac, ip, broadcast)   VALUES("[ALL]",         "FF:FF:FF:FF:FF:FF", "255.255.255.255", 1);

@@ -60,7 +60,7 @@ def signin():
     else:
         flash(message="[Example]Sign In successfully.", category="success")
         # signin_user(user_info)
-        return redirect(url_for(".index"))
+        return redirect(url_for(".hosts"))
 
 
 @admin.route("/sign/out", methods=['GET'])
