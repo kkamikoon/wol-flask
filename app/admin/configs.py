@@ -5,12 +5,10 @@ from flask   import (
     request,
     redirect,
     url_for,
-    render_template,
-    session
+    render_template
 )
 
-from app.utils      import user, get_config, set_config
-
+from app.utils      import user, set_config
 from app.models     import db, Configs, Users
 
 from app.utils.decorators import authed_only

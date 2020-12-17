@@ -1,8 +1,6 @@
 from flask import current_app as app
 from flask import render_template
 
-from app.utils import get_config
-
 # 403
 def forbidden(error):
     return render_template(f"/admin/handler/403.html", error=error.description), 403

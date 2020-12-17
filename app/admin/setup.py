@@ -1,4 +1,4 @@
-import hashlib, re, os, datetime
+import hashlib
 
 from flask  import current_app as app
 from flask  import (
@@ -7,19 +7,14 @@ from flask  import (
     redirect,
     url_for,
     render_template,
-    send_file,
-    abort
+    send_file
 )
 
-from app.utils      import get_config, set_config
-from app.utils      import user as current_user
+from app.utils      import set_config
 
 from app.models     import db, Users
-from sqlalchemy.orm import load_only
 
-from app.utils.user          import authed
 from app.utils.config        import is_setup
-from app.utils.security.auth import signin_user
 
 # Get Blueprint
 from app.admin import admin

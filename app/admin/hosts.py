@@ -4,15 +4,14 @@ from flask  import (
     request,
     redirect,
     url_for,
-    render_template,
-    abort
+    render_template
 )
 
 from app.models             import db, Hosts
 
-from app.utils.user         import authed
 from app.utils.decorators   import authed_only
 from app.utils.wol          import wakeup
+
 # Get Blueprint
 from app.admin import admin
 
