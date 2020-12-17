@@ -15,7 +15,7 @@ from app.utils.wol          import wakeup
 # Get Blueprint
 from app.admin import admin
 
-@admin.route("/admin/hosts", methods=['GET', 'POST'])
+@admin.route("/admin/hosts", methods=['GET'])
 @authed_only
 def hosts():
     hosts   = db.session.query( Hosts.idx,
@@ -28,7 +28,7 @@ def hosts():
                             hosts=hosts )
 
 
-@admin.route("/admin/hosts/<host_idx>", methods=['GET', 'POST'])
+@admin.route("/admin/hosts/<host_idx>", methods=['POST'])
 @authed_only
 def host_detail(host_idx):
     # Get host object
