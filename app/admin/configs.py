@@ -22,4 +22,3 @@ def configs():
         return redirect(url_for("admin.hosts"))
 
     return render_template( f"/admin/configs/configs.html" )
-                            

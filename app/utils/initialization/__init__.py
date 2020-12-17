@@ -43,16 +43,16 @@ def init_template_globals(app):
 
 
 def init_request_processors(app):
-    @app.before_request
-    def needs_setup():
-        if is_setup() is False:
-            if request.endpoint in (
-                "admin.setup",
-                "admin.themes"
-            ):
-                return
-            else:
-                return redirect(url_for("admin.setup"))
+    # @app.before_request
+    # def needs_setup():
+    #     if is_setup() is False:
+    #         if request.endpoint in (
+    #             "admin.setup",
+    #             "admin.themes"
+    #         ):
+    #             return
+    #         else:
+    #             return redirect(url_for("admin.setup"))
 
     @app.before_request
     def domain_check():
