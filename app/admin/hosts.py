@@ -29,7 +29,7 @@ def hosts():
                             hosts=hosts )
 
 
-@admin.route("/admin/hosts/<host_idx>", methods=['POST'])
+@admin.route("/admin/hosts/<host_idx>", methods=['GET', 'POST'])
 # @authed_only
 def host_detail(host_idx):
     # Get host object
