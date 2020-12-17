@@ -19,11 +19,11 @@ class Config(object):
 
     # SQLAlchemy Settings
     db_info         = {
-        "user"      : "wol",
-        "password"  : "wol",
+        "user"      : "wol_example",
+        "password"  : "wol_example",
         "host"      : "localhost",
         "port"      : 3306,
-        "database"  : "wol"
+        "database"  : "wol_example"
     }
     
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{db_info['user']}:{db_info['password']}@{db_info['host']}:{db_info['port']}/{db_info['database']}?charset=utf8"

@@ -75,7 +75,7 @@
           </a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/" class="nav-link">Home</a>
+          <a href="/admin/hosts" class="nav-link">Home</a>
         </li>
       </ul>
 
@@ -103,7 +103,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-warning elevation-4">
       <!-- Brand Logo -->
-      <a href="/" class="brand-link">
+      <a href="/admin/hosts" class="brand-link">
         <img src="{{url_for('admin.themes', path='img/dokkaebi_yelling.gif')}}" alt="AdminLTE Logo" class="brand-image elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">
           <b>WakeOnLan</b>
@@ -118,14 +118,13 @@
             <img src="{{url_for('admin.themes', path='img/dokkaebi_profile.png')}}" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="/" class="d-block">KKAMIKOON</a>
+            <a href="/admin/hosts" class="d-block">KKAMIKOON</a>
           </div>
         </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            {% if is_setup() %}
             <li class="nav-item">
               <a href="/admin/hosts" class="nav-link {%if current_endpoint() in ['admin.hosts', 'admin.host_detail'] %}active{% endif %}">
                 <i class="nav-icon fa fa-server"></i>
@@ -142,16 +141,54 @@
                 </p>
               </a>
             </li>
-            {% else %}
             <li class="nav-item">
-              <a href="/admin/setup" class="nav-link active">
+              <a href="/admin/setup" class="nav-link {%if current_endpoint() in ['admin.setup']%}active{% endif %}">
                 <i class="nav-icon fa fa-cogs"></i>
                 <p>
                   Set-Up
                 </p>
               </a>
             </li>
-            {% endif %}
+            <li class="nav-item">
+              <a href="/admin/403" class="nav-link {%if current_endpoint() in ['admin.handler_forbidden']%}active{% endif %}">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p>
+                  403 Error
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/404" class="nav-link {%if current_endpoint() in ['admin.handler_page_not_found']%}active{% endif %}">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p>
+                  404 Error
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/429" class="nav-link {%if current_endpoint() in ['admin.handler_too_many_requests']%}active{% endif %}">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p>
+                  429 Error
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/500" class="nav-link {%if current_endpoint() in ['admin.handler_general_error']%}active{% endif %}">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p>
+                  500 Error
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/502" class="nav-link {%if current_endpoint() in ['admin.handler_gateway_error']%}active{% endif %}">
+                <i class="nav-icon fa fa-cogs"></i>
+                <p>
+                  404 Error
+                </p>
+              </a>
+            </li>
 
           </ul>
         </nav>

@@ -21,14 +21,14 @@
         <div class="tab-pane fade show active" id="admin-tab">
           <div class="row">
             <!-- Admin Idx -->
-            <input type="hidden" name="idx" value="{{user.idx}}">
+            <input type="hidden" name="idx" value="1">
             <!-- ./ -->
             <div class="col-md-4">
               <div class="form-group">
                 <label>
                   Admin ID
                 </label>
-                <input type="text" class="form-control" name="uid" value="{{user.uid}}" placeholder="You cannot modify it." disabled>
+                <input type="text" class="form-control" name="uid" value="kkamikoon" placeholder="You cannot modify it." disabled>
               </div>
             </div>
             <div class="col-md-4">
@@ -110,7 +110,7 @@
                 <label>
                   reCaptcha Site Key
                 </label>
-                <input type="text" class="form-control" name="recaptcha_site_key" value="{{get_config('recaptcha_site_key')}}" placeholder="Get your site key : https://www.google.com/recaptcha/about/">
+                <input type="text" class="form-control" name="recaptcha_site_key" value="" placeholder="Get your site key : https://www.google.com/recaptcha/about/">
               </div>
             </div>
             <div class="col-md-4">
@@ -118,7 +118,7 @@
                 <label>
                   reCaptcha Secret Key
                 </label>
-                <input type="text" class="form-control" name="recaptcha_secret_key" value="{{get_config('recaptcha_secret_key')}}" placeholder="Get your secret key : https://www.google.com/recaptcha/about/">
+                <input type="text" class="form-control" name="recaptcha_secret_key" value="" placeholder="Get your secret key : https://www.google.com/recaptcha/about/">
               </div>
             </div>
             <div class="col-md-4">

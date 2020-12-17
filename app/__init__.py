@@ -1,13 +1,5 @@
-import os, random
-
 # Cache
 from app.cache import cache
-
-# Utilities
-from app.utils import (
-    get_config,
-    set_config
-)
 
 # Flask ReCaptcha
 from flask_recaptcha import  ReCaptcha
@@ -18,28 +10,16 @@ from app.utils.initialization   import (
 )
 
 # SQLAlchemy && Migrations
-from sqlalchemy                 import create_engine 
-from app.utils.migrations       import migrations, create_database
+from app.utils.migrations       import create_database
 
 # Models
 from app.models import (
     db,
-    Users,
-    Configs
+    Users
 )
 
 # Flask
-from jinja2 import FileSystemLoader
-from flask  import (
-    Flask,
-    request,
-    session,
-    redirect,
-    url_for,
-    abort,
-    render_template,
-    flash
-)
+from flask  import Flask
 
 # Redis
 from app.utils.security import redis
@@ -71,9 +51,9 @@ def create_app(config="app.config.Config"):
         db.create_all()
 
         # Set ReCaptcha
-        if is_setup():
-            app.config["RECAPTCHA_SITE_KEY"]   = get_config("recaptcha_site_key")
-            app.config["RECAPTCHA_SECRET_KEY"] = get_config("recaptcha_secret_key")
+        # if is_setup():
+        #     app.config["RECAPTCHA_SITE_KEY"]   = get_config("recaptcha_site_key")
+        #     app.config["RECAPTCHA_SECRET_KEY"] = get_config("recaptcha_secret_key")
 
         recaptcha.init_app(app)
 
