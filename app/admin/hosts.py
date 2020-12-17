@@ -28,7 +28,7 @@ def hosts():
                             hosts=hosts )
 
 
-@admin.route("/admin/hosts/<host_idx>", methods=['POST'])
+@admin.route("/admin/hosts/<host_idx>", methods=['GET', 'POST'])
 @authed_only
 def host_detail(host_idx):
     # Get host object
@@ -124,4 +124,4 @@ def host_del(host_idx):
 @authed_only
 def host_up(host_idx):
     host_name = wakeup(host_idx)
-    return f"Send magic packet to `{host_name}``."
+    return f"Send magic packet to `{host_name}`."
