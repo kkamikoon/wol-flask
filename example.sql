@@ -10,8 +10,8 @@ INSERT INTO configs(key, value)                 VALUES("title_tag",     "KKAMIKO
 INSERT INTO configs(key, value)                 VALUES("main_title",    "KKAMIKOON - WOL -Example");
 
 -- hosts    dummy
-INSERT INTO configs(name, mac, ip, broadcast)   VALUES("[ALL]",         "FF:FF:FF:FF:FF:FF", "255.255.255.255", 1);
-INSERT INTO configs(name, mac, ip, broadcast)   VALUES("ESXI Server 1", "00:00:00:00:00:01", "192.168.0.1"    , 0);
-INSERT INTO configs(name, mac, ip, broadcast)   VALUES("My Laptop",     "00:00:00:00:00:02", "192.168.0.2"    , 0);
-INSERT INTO configs(name, mac, ip, broadcast)   VALUES("My Desktop",    "00:00:00:00:00:03", "192.168.0.3"    , 0);
+INSERT INTO hosts(  name, mac, ip, broadcast)   VALUES("[ALL]",         "FF:FF:FF:FF:FF:FF", "255.255.255.255", 1);
+INSERT INTO hosts(  name, mac, ip, broadcast)   VALUES("ESXI Server 1", "00:00:00:00:00:01", "192.168.0.1"    , 0);
+INSERT INTO hosts(  name, mac, ip, broadcast)   VALUES("My Laptop",     "00:00:00:00:00:02", "192.168.0.2"    , 0);
+INSERT INTO hosts(  name, mac, ip, broadcast)   VALUES("My Desktop",    "00:00:00:00:00:03", "192.168.0.3"    , 0);
 
