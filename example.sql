@@ -6,7 +6,7 @@ INSERT INTO users(  uid, email, password)       VALUES("kkamikoon",     "kkamiko
 -- configs  dummy
 INSERT INTO configs(`key`, `value`)             VALUES("wol_domain",    "wol.example.kkamikoon.com");
 INSERT INTO configs(`key`, `value`)             VALUES("domain_check",  1);
-INSERT INTO configs(`key`, `value`)             VALUES("title_tag",     "KKAMIKOON - WOL -Example");
+INSERT INTO configs(`key`, `value`)             VALUES("title_tag",     "KKAMIKOON - WOL - Example");
 INSERT INTO configs(`key`, `value`)             VALUES("main_title",    "WOL -Example");
 
 -- hosts    dummy

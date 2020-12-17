@@ -5,12 +5,8 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-
-  {% if is_setup() %}
-  <title>{{get_config("title_tag")}}</title>
-  {% else %}
-  <title>Set-Up</title>
-  {% endif %}
+  
+  <title>{{get_config("title_tag")}}</title> 
 
   <!-- Favicons -->
   <link href="{{url_for('admin.themes', path='img/dokkaebi.png')}}" rel="apple=touch-icon" sizes="76x76">
@@ -185,7 +181,7 @@
               <a href="/admin/502" class="nav-link {%if current_endpoint() in ['admin.handler_gateway_error']%}active{% endif %}">
                 <i class="nav-icon far fa-circle"></i>
                 <p>
-                  404 Error
+                  502 Error
                 </p>
               </a>
             </li>
