@@ -1,5 +1,4 @@
 # Ubuntu 18.04 ~ 
-
 if you use ubuntu 18.04 or higher version of OS, you can follow these settings.
 
 ## APT setting
@@ -73,3 +72,11 @@ sudo a2ensite wol
 sudo a2dissite 000-default
 ```
 Your configuration file(wol.conf) should be ensited, and should dissite default config file(000-default.conf)
+
+# Licenses
+* GNU General Public License v3.0
+
+
+# Links
+* Example : https://wol.example.kkamikoon.com
+* Template : https://adminlte.io (MIT)
